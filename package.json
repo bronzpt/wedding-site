@@ -1,0 +1,23 @@
+{
+  "name": "wedding-site",
+  "version": "1.0.0",
+  "description": "Wedding site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bronzpt/wedding-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bronzpt/wedding-site/issues"
+  },
+  "homepage": "https://github.com/bronzpt/wedding-site#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  }
+}
