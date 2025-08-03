@@ -4,20 +4,22 @@
   "description": "Wedding site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tailwindcss -i ./src/style.css -o ./output.css --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bronzpt/wedding-site.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Marco",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bronzpt/wedding-site/issues"
   },
   "homepage": "https://github.com/bronzpt/wedding-site#readme",
   "devDependencies": {
-    "tailwindcss": "^4.1.11"
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
   }
 }
