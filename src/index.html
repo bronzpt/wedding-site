@@ -10,12 +10,22 @@
     html {
       scroll-behavior: smooth;
     }
+    
+    .hero-section {
+      background-image: url('./assets/wedding_mobile.jpg');
+    }
+    
+    @media (min-width: 700px) {
+      .hero-section {
+        background-image: url('./assets/wedding.jpg');
+      }
+    }
   </style>
 </head>
 <body class="font-sans text-gray-800">
   <!-- Hero Section -->
-  <section class="relative h-screen w-full bg-cover bg-center flex items-center justify-center" style="background-image: url('FOTO_DO_CASAL.jpg');">
-    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
+  <section class="relative h-screen w-full bg-cover bg-center flex items-center justify-center hero-section">
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center pt-12 items-center text-center text-white">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Bem-vindos ao nosso grande dia!</h1>
       <p class="text-lg md:text-2xl max-w-2xl mb-8">
         É com o coração cheio de alegria que partilhamos convosco o início de um novo capítulo da nossa história.
@@ -39,7 +49,7 @@
           A festa continuará na <strong>Casa da Quinta</strong> em <strong>Marco de Canaveses</strong>.
         </p>
       </div>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="#formulario" class="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition duration-300 text-lg">Confirmar Presença</a>
         <a href="https://maps.google.com/?q=Casa+da+Quinta+Marco+de+Canaveses" target="_blank" class="bg-gray-800 text-white px-8 py-4 rounded-full hover:bg-gray-700 transition duration-300 text-lg flex items-center gap-2">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -135,8 +145,21 @@
         </div>
       </form>
       
-      <div id="mensagemSucesso" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-        <p class="font-medium">Obrigado! A tua confirmação foi enviada com sucesso! 💛</p>
+      <div id="mensagemSucesso" class="hidden mt-6 p-8 bg-green-50 border border-green-200 text-center rounded-lg">
+        <div class="mb-4">
+          <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-green-800 mb-2">Enviado com sucesso!</h3>
+        <div id="mensagemVaiAoCasamento" class="hidden">
+          <p class="text-lg text-green-700 mb-4">Agradecemos com todo o carinho a tua confirmação de presença.</p>
+          <p class="text-green-600">Vamos guardar um lugar especial para ti no nosso grande dia! 💛</p>
+        </div>
+        <div id="mensagemNaoVaiAoCasamento" class="hidden">
+          <p class="text-lg text-green-700 mb-4">Obrigado por nos teres respondido com tanta honestidade.</p>
+          <p class="text-green-600">Compreendemos perfeitamente e continuamos a contar contigo no nosso coração! 💛</p>
+        </div>
       </div>
       
       <div id="mensagemErro" class="hidden mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
@@ -212,33 +235,47 @@
       
       // Obter dados do formulário
       const formData = new FormData(e.target);
-      const dados = {
-        nome: formData.get('nome'),
-        vaiAoCasamento: formData.get('vaiAoCasamento'),
-        numPessoas: formData.get('numPessoas'),
-        nomesPessoas: Array.from(document.querySelectorAll('#camposNomes input[name="nomePessoa[]"]')).map(input => input.value),
-        alergias: formData.get('alergias'),
-        email: formData.get('email'),
-        telefone: formData.get('telefone'),
-        mensagem: formData.get('mensagem')
-      };
+      const nome = formData.get('nome');
+      const vaiAoCasamento = formData.get('vaiAoCasamento');
+      const numPessoas = formData.get('numPessoas');
+      const nomesPessoas = Array.from(document.querySelectorAll('#camposNomes input[name="nomePessoa[]"]')).map(input => input.value);
+      const alergias = formData.get('alergias');
+      const email = formData.get('email');
+      const telefone = formData.get('telefone');
+      const mensagem = formData.get('mensagem');
       
-      // Enviar email usando EmailJS
+      // Enviar email usando EmailJS (envio automático em background)
       emailjs.send('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', {
-        to_email: 'email@exemplo.com',
-        from_name: dados.nome,
-        vai_ao_casamento: dados.vaiAoCasamento === 'sim' ? 'Sim' : 'Não',
-        num_pessoas: dados.numPessoas || 'N/A',
-        nomes_pessoas: dados.nomesPessoas.join(', ') || 'N/A',
-        alergias: dados.alergias || 'N/A',
-        from_email: dados.email || 'Não fornecido',
-        telefone: dados.telefone || 'Não fornecido',
-        mensagem: dados.mensagem || 'Sem mensagem',
+        to_email: 'marcoteixeira.90@gmail.com',
+        from_name: nome,
+        vai_ao_casamento: vaiAoCasamento === 'sim' ? 'Sim' : 'Não',
+        num_pessoas: numPessoas || 'N/A',
+        nomes_pessoas: nomesPessoas.join(', ') || 'N/A',
+        alergias: alergias || 'N/A',
+        from_email: email || 'Não fornecido',
+        telefone: telefone || 'Não fornecido',
+        mensagem: mensagem || 'Sem mensagem',
         subject: 'Confirmação de Presença - Casamento Tânia & Tiago'
       })
       .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
+        
+        // Esconder o formulário
+        document.getElementById('formularioConfirmacao').style.display = 'none';
+        
+        // Mostrar mensagem de sucesso
         mensagemSucesso.classList.remove('hidden');
+        
+        // Mostrar mensagem específica de acordo com a resposta
+        if (vaiAoCasamento === 'sim') {
+          document.getElementById('mensagemVaiAoCasamento').classList.remove('hidden');
+          document.getElementById('mensagemNaoVaiAoCasamento').classList.add('hidden');
+        } else {
+          document.getElementById('mensagemVaiAoCasamento').classList.add('hidden');
+          document.getElementById('mensagemNaoVaiAoCasamento').classList.remove('hidden');
+        }
+        
+        // Reset do formulário (para limpar dados)
         e.target.reset();
         document.getElementById('detalhesPresenca').style.display = 'none';
         document.getElementById('nomesPessoas').style.display = 'none';
