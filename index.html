@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casamento Tânia & Tiago</title>
-  <link href="./output.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+     <link href="./output.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
   <style>
     html {
       scroll-behavior: smooth;
@@ -69,24 +70,24 @@
       
       <!-- Formulário Personalizado -->
       <form id="formularioConfirmacao" class="space-y-6 text-left">
-        <div>
-          <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
-          <input type="text" id="nome" name="nome" required 
-                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-transparent"
-                 placeholder="O teu nome completo">
-        </div>
+                 <div>
+           <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
+           <input type="text" id="nome" name="nome" required 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-transparent"
+                  placeholder="O teu nome completo">
+         </div>
         
-        <div>
-          <label for="vaiAoCasamento" class="block text-sm font-medium text-gray-700 mb-2">Vais ao nosso casamento? *</label>
-          <select id="vaiAoCasamento" name="vaiAoCasamento" required 
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-transparent">
-            <option value="">Seleciona uma opção</option>
-            <option value="sim">Sim, vou estar presente! 💛</option>
-            <option value="nao">Infelizmente não posso ir</option>
-          </select>
-        </div>
+                 <div>
+           <label for="vaiAoCasamento" class="block text-sm font-medium text-gray-700 mb-2">Vais ao nosso casamento? *</label>
+           <select id="vaiAoCasamento" name="vaiAoCasamento" required 
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-transparent">
+             <option value="">Seleciona uma opção</option>
+             <option value="sim">Sim, vou estar presente! 💛</option>
+             <option value="nao">Infelizmente não posso ir</option>
+           </select>
+         </div>
         
-        <div id="detalhesPresenca" style="display: none;" class="space-y-4">
+                 <div id="detalhesPresenca" style="display: none;" class="space-y-4 w-full">
           <div>
             <label for="numPessoas" class="block text-sm font-medium text-gray-700 mb-2">Número de Pessoas *</label>
             <select id="numPessoas" name="numPessoas" 
@@ -101,12 +102,63 @@
             </select>
           </div>
           
-          <div id="nomesPessoas" style="display: none;" class="space-y-3">
-            <label class="block text-sm font-medium text-gray-700 mb-2">Nomes das Pessoas *</label>
-            <div id="camposNomes" class="space-y-3">
-              <!-- Campos de nomes serão adicionados dinamicamente -->
-            </div>
-          </div>
+            <div id="nomesPessoas" style="display: none;" class="space-y-4 w-full">
+             <label class="block text-sm font-medium text-gray-700 mb-2">Nomes e Idades das Pessoas *</label>
+             
+                                                                                                               <div style="display: none; gap: 12px; width: 100%;" id="pessoa1">
+                <input type="text" name="nomePessoa1" required
+                                               style="flex: 1; min-width: 0; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Nome da pessoa 1">
+                <input type="number" name="idadePessoa1" required min="0" max="120"
+                       style="width: 20%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Idade">
+              </div>
+             
+                           <div style="display: flex; gap: 12px; width: 100%;" id="pessoa2" style="display: none;">
+                <input type="text" name="nomePessoa2"
+                                               style="flex: 1; min-width: 0; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Nome da pessoa 2">
+                <input type="number" name="idadePessoa2" min="0" max="120"
+                       style="width: 20%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Idade">
+              </div>
+             
+                           <div style="display: flex; gap: 12px; width: 100%;" id="pessoa3" style="display: none;">
+                <input type="text" name="nomePessoa3"
+                                               style="flex: 1; min-width: 0; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Nome da pessoa 3">
+                <input type="number" name="idadePessoa3" min="0" max="120"
+                       style="width: 20%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Idade">
+              </div>
+             
+                           <div style="display: flex; gap: 12px; width: 100%;" id="pessoa4" style="display: none;">
+                <input type="text" name="nomePessoa4"
+                                               style="flex: 1; min-width: 0; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Nome da pessoa 4">
+                <input type="number" name="idadePessoa4" min="0" max="120"
+                       style="width: 20%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Idade">
+              </div>
+             
+                           <div style="display: flex; gap: 12px; width: 100%;" id="pessoa5" style="display: none;">
+                <input type="text" name="nomePessoa5"
+                                               style="flex: 1; min-width: 0; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Nome da pessoa 5">
+                <input type="number" name="idadePessoa5" min="0" max="120"
+                       style="width: 20%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Idade">
+              </div>
+             
+                           <div style="display: flex; gap: 12px; width: 100%;" id="pessoa6" style="display: none;">
+                <input type="text" name="nomePessoa6"
+                                               style="flex: 1; min-width: 0; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Nome da pessoa 6">
+                <input type="number" name="idadePessoa6" min="0" max="120"
+                       style="width: 20%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;"
+                       placeholder="Idade">
+              </div>
+           </div>
           
           <div>
             <label for="alergias" class="block text-sm font-medium text-gray-700 mb-2">Alergias Alimentares</label>
@@ -175,122 +227,131 @@
     <p class="text-lg">Obrigado por fazeres parte da nossa história ❤️</p>
   </footer>
 
-  <script>
-    // Inicializar EmailJS
-    emailjs.init("SEU_USER_ID_AQUI");
+           <script>
+      // Inicializar EmailJS
+      emailjs.init("2W1--XOorXqSqCXx0");
 
-    // Função para mostrar/esconder campos baseado na resposta
-    function toggleCampos() {
-      const vaiAoCasamento = document.getElementById('vaiAoCasamento').value;
-      const detalhesPresenca = document.getElementById('detalhesPresenca');
-      const nomesPessoas = document.getElementById('nomesPessoas');
-      
-      if (vaiAoCasamento === 'sim') {
-        detalhesPresenca.style.display = 'block';
-        nomesPessoas.style.display = 'block';
-      } else {
-        detalhesPresenca.style.display = 'none';
-        nomesPessoas.style.display = 'none';
-      }
-    }
-
-    // Função para criar campos de nomes
-    function criarCamposNomes() {
-      const numPessoas = document.getElementById('numPessoas').value;
-      const camposNomes = document.getElementById('camposNomes');
-      
-      camposNomes.innerHTML = '';
-      
-      if (numPessoas > 0) {
-        for (let i = 1; i <= numPessoas; i++) {
-          const div = document.createElement('div');
-          div.innerHTML = `
-            <input type="text" name="nomePessoa[]" required
-                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-400 focus:border-transparent"
-                   placeholder="Nome da pessoa ${i}">
-          `;
-          camposNomes.appendChild(div);
-        }
-      }
-    }
-
-    // Event listeners
-    document.getElementById('vaiAoCasamento').addEventListener('change', toggleCampos);
-    document.getElementById('numPessoas').addEventListener('change', criarCamposNomes);
-
-    document.getElementById('formularioConfirmacao').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const btnEnviar = document.getElementById('btnEnviar');
-      const mensagemSucesso = document.getElementById('mensagemSucesso');
-      const mensagemErro = document.getElementById('mensagemErro');
-      
-      // Esconder mensagens anteriores
-      mensagemSucesso.classList.add('hidden');
-      mensagemErro.classList.add('hidden');
-      
-      // Desabilitar botão e mostrar loading
-      btnEnviar.disabled = true;
-      btnEnviar.textContent = 'A enviar...';
-      
-      // Obter dados do formulário
-      const formData = new FormData(e.target);
-      const nome = formData.get('nome');
-      const vaiAoCasamento = formData.get('vaiAoCasamento');
-      const numPessoas = formData.get('numPessoas');
-      const nomesPessoas = Array.from(document.querySelectorAll('#camposNomes input[name="nomePessoa[]"]')).map(input => input.value);
-      const alergias = formData.get('alergias');
-      const email = formData.get('email');
-      const telefone = formData.get('telefone');
-      const mensagem = formData.get('mensagem');
-      
-      // Enviar email usando EmailJS (envio automático em background)
-      emailjs.send('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', {
-        to_email: 'marcoteixeira.90@gmail.com',
-        from_name: nome,
-        vai_ao_casamento: vaiAoCasamento === 'sim' ? 'Sim' : 'Não',
-        num_pessoas: numPessoas || 'N/A',
-        nomes_pessoas: nomesPessoas.join(', ') || 'N/A',
-        alergias: alergias || 'N/A',
-        from_email: email || 'Não fornecido',
-        telefone: telefone || 'Não fornecido',
-        mensagem: mensagem || 'Sem mensagem',
-        subject: 'Confirmação de Presença - Casamento Tânia & Tiago'
-      })
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
+      // Função para mostrar/esconder campos baseado na resposta
+      function toggleCampos() {
+        const vaiAoCasamento = document.getElementById('vaiAoCasamento').value;
+        const detalhesPresenca = document.getElementById('detalhesPresenca');
+        const nomesPessoas = document.getElementById('nomesPessoas');
         
-        // Esconder o formulário
-        document.getElementById('formularioConfirmacao').style.display = 'none';
-        
-        // Mostrar mensagem de sucesso
-        mensagemSucesso.classList.remove('hidden');
-        
-        // Mostrar mensagem específica de acordo com a resposta
         if (vaiAoCasamento === 'sim') {
-          document.getElementById('mensagemVaiAoCasamento').classList.remove('hidden');
-          document.getElementById('mensagemNaoVaiAoCasamento').classList.add('hidden');
+          detalhesPresenca.style.display = 'block';
+          nomesPessoas.style.display = 'none';
         } else {
-          document.getElementById('mensagemVaiAoCasamento').classList.add('hidden');
-          document.getElementById('mensagemNaoVaiAoCasamento').classList.remove('hidden');
+          detalhesPresenca.style.display = 'none';
+          nomesPessoas.style.display = 'none';
+        }
+      }
+
+     // Função para mostrar/esconder campos de pessoas
+     function mostrarCamposPessoas() {
+       const numPessoas = document.getElementById('numPessoas').value;
+       const nomesPessoas = document.getElementById('nomesPessoas');
+       
+       // Esconder todos os campos primeiro
+       for (let i = 1; i <= 6; i++) {
+         document.getElementById(`pessoa${i}`).style.display = 'none';
+       }
+       
+       if (numPessoas && numPessoas !== '') {
+         nomesPessoas.style.display = 'block';
+         
+         // Mostrar os campos necessários
+         for (let i = 1; i <= numPessoas; i++) {
+           document.getElementById(`pessoa${i}`).style.display = 'flex';
+         }
+       } else {
+         nomesPessoas.style.display = 'none';
+       }
+     }
+
+     // Event listeners
+     document.getElementById('vaiAoCasamento').addEventListener('change', toggleCampos);
+     document.getElementById('numPessoas').addEventListener('change', mostrarCamposPessoas);
+
+           // Função para enviar via EmailJS
+      document.getElementById('formularioConfirmacao').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const btnEnviar = document.getElementById('btnEnviar');
+        btnEnviar.disabled = true;
+        btnEnviar.textContent = 'A enviar...';
+        
+        // Obter dados do formulário
+        const formData = new FormData(e.target);
+        const nome = formData.get('nome');
+        const vaiAoCasamento = formData.get('vaiAoCasamento');
+        const numPessoas = formData.get('numPessoas');
+        
+        // Recolher dados das pessoas
+        const nomesPessoas = [];
+        const idadesPessoas = [];
+        for (let i = 1; i <= 6; i++) {
+          const nomePessoa = document.querySelector(`input[name="nomePessoa${i}"]`);
+          const idadePessoa = document.querySelector(`input[name="idadePessoa${i}"]`);
+          
+          if (nomePessoa && nomePessoa.value.trim()) {
+            nomesPessoas.push(nomePessoa.value);
+            idadesPessoas.push(idadePessoa ? idadePessoa.value : '');
+          }
         }
         
-        // Reset do formulário (para limpar dados)
-        e.target.reset();
-        document.getElementById('detalhesPresenca').style.display = 'none';
-        document.getElementById('nomesPessoas').style.display = 'none';
-        document.getElementById('camposNomes').innerHTML = '';
-      })
-      .catch(function(error) {
-        console.log('FAILED...', error);
-        mensagemErro.classList.remove('hidden');
-      })
-      .finally(function() {
-        // Reabilitar botão
-        btnEnviar.disabled = false;
-        btnEnviar.textContent = 'Confirmar Presença';
+        const alergias = formData.get('alergias');
+        const email = formData.get('email');
+        const telefone = formData.get('telefone');
+        const mensagem = formData.get('mensagem');
+        
+        // Preparar dados para EmailJS
+        const templateParams = {
+          nome: nome,
+          vaiAoCasamento: vaiAoCasamento,
+          numPessoas: numPessoas,
+          nomesPessoas: nomesPessoas.join(', '),
+          idadesPessoas: idadesPessoas.join(', '),
+          alergias: alergias,
+          email: email,
+          telefone: telefone,
+          mensagem: mensagem
+        };
+        
+        // Enviar via EmailJS
+        emailjs.send('service_rkx36tr', 'template_a1vly8s', templateParams)
+        .then(function() {
+          // Esconder o formulário
+          document.getElementById('formularioConfirmacao').style.display = 'none';
+          
+          // Mostrar mensagem de sucesso
+          const mensagemSucesso = document.getElementById('mensagemSucesso');
+          mensagemSucesso.classList.remove('hidden');
+          
+          // Mostrar mensagem específica
+          if (vaiAoCasamento === 'sim') {
+            document.getElementById('mensagemVaiAoCasamento').classList.remove('hidden');
+            document.getElementById('mensagemNaoVaiAoCasamento').classList.add('hidden');
+          } else {
+            document.getElementById('mensagemVaiAoCasamento').classList.add('hidden');
+            document.getElementById('mensagemNaoVaiAoCasamento').classList.remove('hidden');
+          }
+          
+          // Reset do formulário
+          e.target.reset();
+          document.getElementById('detalhesPresenca').style.display = 'none';
+          document.getElementById('nomesPessoas').style.display = 'none';
+        })
+        .catch(function(error) {
+          console.log('Erro:', error);
+          const mensagemErro = document.getElementById('mensagemErro');
+          mensagemErro.classList.remove('hidden');
+        })
+        .finally(function() {
+          // Reabilitar botão
+          btnEnviar.disabled = false;
+          btnEnviar.textContent = 'Confirmar Presença';
+        });
       });
-    });
-  </script>
+   </script>
 </body>
 </html> 

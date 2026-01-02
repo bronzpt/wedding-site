@@ -4,7 +4,7 @@
   "description": "Wedding site",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/style.css -o ./output.css --watch"
+    "dev": "tailwindcss -i ./style.css -o ./output.css --watch"
   },
   "repository": {
     "type": "git",
